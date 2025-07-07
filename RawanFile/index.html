@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Command Line Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Git Command Line Tutorial</h1>
+        <p>Your essential guide to mastering Git from the terminal.</p>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>1. Introduction to Git</h2>
+            <p>Git is a free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. It allows multiple developers to work on the same project simultaneously without overwriting each other's changes.</p>
+            <p>This tutorial will guide you through the fundamental Git commands you'll use daily.</p>
+        </section>
+
+        <section id="setup">
+            <h2>2. Setting Up Git</h2>
+            <h3>Install Git</h3>
+            <p>First, ensure Git is installed on your system. You can download it from the official Git website or use your system's package manager.</p>
+            <ul>
+                <li><strong>Windows:</strong> Download from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a>.</li>
+                <li><strong>macOS:</strong> Install with Homebrew (`brew install git`) or Xcode Command Line Tools.</li>
+                <li><strong>Linux:</strong> Use your package manager (e.g., `sudo apt-get install git` for Debian/Ubuntu, `sudo yum install git` for Fedora/CentOS).</li>
+            </ul>
+
+            <h3>Configure Git</h3>
+            <p>After installation, set your user name and email address. These will be attached to your commits.</p>
+            <pre><code>git config --global user.name "Your Name"</code></pre>
+            <pre><code>git config --global user.email "your.email@example.com"</code></pre>
+        </section>
+
+        <section id="basic-commands">
+            <h2>3. Basic Git Commands</h2>
+
+            <article>
+                <h3>3.1. `git init` - Initialize a New Repository</h3>
+                <p>To start tracking a new project with Git, navigate to your project directory and run:</p>
+                <pre><code>git init</code></pre>
+                <p>This creates a hidden `.git` directory, which is where Git stores all its tracking information.</p>
+            </article>
+
+            <article>
+                <h3>3.2. `git add` - Stage Changes</h3>
+                <p>After making changes to your files, you need to "stage" them before committing. Staging means telling Git which changes you want to include in your next commit.</p>
+                <p>To add a specific file:</p>
+                <pre><code>git add filename.txt</code></pre>
+                <p>To add all changes in the current directory:</p>
+                <pre><code>git add .</code></pre>
+            </article>
+
+            <article>
+                <h3>3.3. `git commit` - Save Changes</h3>
+                <p>A commit records a snapshot of your staged changes to the repository's history. Always include a clear and concise message describing your changes.</p>
+                <pre><code>git commit -m "Your descriptive commit message"</code></pre>
+            </article>
+
+            <article>
+                <h3>3.4. `git status` - Check Repository Status</h3>
+                <p>This command shows the current state of your working directory and staging area. It tells you which changes are staged, unstaged, or untracked.</p>
+                <pre><code>git status</code></pre>
+            </article>
+
+            <article>
+                <h3>3.5. `git log` - View Commit History</h3>
+                <p>To see a history of all commits in the current branch, including commit hash, author, date, and message:</p>
+                <pre><code>git log</code></pre>
+                <p>For a more condensed view:</p>
+                <pre><code>git log --oneline</code></pre>
+            </article>
+        </section>
+
+        <section id="remote-repositories">
+            <h2>4. Working with Remote Repositories</h2>
+            <p>Remote repositories are versions of your project hosted on the internet or network, like GitHub, GitLab, or Bitbucket. They allow collaboration and serve as a backup.</p>
+
+            <article>
+                <h3>4.1. `git clone` - Download a Repository</h3>
+                <p>To get a copy of an existing remote repository onto your local machine:</p>
+                <pre><code>git clone &lt;repository_url&gt;</code></pre>
+                <p>Example:</p>
+                <pre><code>git clone https://github.com/user/repository.git</code></pre>
+            </article>
+
+            <article>
+                <h3>4.2. `git pull` - Fetch and Merge Changes</h3>
+                <p>To download changes from the remote repository and automatically merge them into your current local branch:</p>
+                <pre><code>git pull origin main</code></pre>
+                <p>(`origin` is the default name for your remote, `main` is often the primary branch name)</p>
+            </article>
+
+            <article>
+                <h3>4.3. `git push` - Upload Changes</h3>
+                <p>To send your committed changes from your local repository to the remote repository:</p>
+                <pre><code>git push origin main</code></pre>
+                <p>The first time you push a new local branch, you might need to set the upstream:</p>
+                <pre><code>git push -u origin main</code></pre>
+            </article>
+        </section>
+
+        <section id="branching">
+            <h2>5. Branching and Merging</h2>
+            <p>Branching allows you to diverge from the main line of development and work on new features or bug fixes without affecting the stable codebase.</p>
+
+            <article>
+                <h3>5.1. `git branch` - Manage Branches</h3>
+                <p>To list all local branches:</p>
+                <pre><code>git branch</code></pre>
+                <p>To create a new branch:</p>
+                <pre><code>git branch new-feature</code></pre>
+            </article>
+
+            <article>
+                <h3>5.2. `git checkout` - Switch Branches</h3>
+                <p>To switch to an existing branch:</p>
+                <pre><code>git checkout new-feature</code></pre>
+                <p>To create a new branch and switch to it immediately (common shortcut):</p>
+                <pre><code>git checkout -b another-new-feature</code></pre>
+            </article>
+
+            <article>
+                <h3>5.3. `git merge` - Integrate Changes</h3>
+                <p>To integrate changes from one branch into your current branch (e.g., merge `new-feature` into `main`):</p>
+                <pre><code>git checkout main</code></pre>
+                <pre><code>git merge new-feature</code></pre>
+                <p>After merging, you can delete the feature branch if it's no longer needed:</p>
+                <pre><code>git branch -d new-feature</code></pre>
+            </article>
+        </section>
+
+        <section id="conclusion">
+            <h2>6. Conclusion</h2>
+            <p>This tutorial covered the most frequently used Git commands. Git has a much deeper set of features, but mastering these basics will enable you to work effectively on most projects.</p>
+            <p><strong>Key Takeaways:</strong></p>
+            <ul>
+                <li><strong>Initialize:</strong> `git init`</li>
+                <li><strong>Track:</strong> `git add .`</li>
+                <li><strong>Save:</strong> `git commit -m "message"`</li>
+                <li><strong>Check Status:</strong> `git status`</li>
+                <li><strong>View History:</strong> `git log`</li>
+                <li><strong>Collaborate:</strong> `git clone`, `git pull`, `git push`</li>
+                <li><strong>Organize:</strong> `git branch`, `git checkout`, `git merge`</li>
+            </ul>
+            <p>Keep practicing, and don't hesitate to consult the official Git documentation or online resources when you encounter new scenarios!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Git Command Line Tutorial</p>
+    </footer>
+</body>
+</html>
