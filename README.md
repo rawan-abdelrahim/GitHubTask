@@ -55,10 +55,6 @@ If you find any issues, have suggestions for improvements, or want to add more a
 5.  Push to the branch (`git push origin feature/your-feature-name`).
 6.  Open a Pull Request.
 
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
 ---
 
 Happy Gitting!
